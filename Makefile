@@ -32,8 +32,8 @@ endef
 $(call pkgconf,QT5CORE,Qt5Core)
 $(call pkgconf,QT5WIDGETS,Qt5Widgets)
 
-CFLAGS   ?= -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=hard -mthumb
-CXXFLAGS ?= -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=hard -mthumb
+CFLAGS   ?= -O2 -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=hard -mthumb
+CXXFLAGS ?= -O2 -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=hard -mthumb
 LDFLAGS  ?= -Wl,--as-needed
 
 override CFLAGS   += -std=gnu11 -Wall -Wextra -Werror
