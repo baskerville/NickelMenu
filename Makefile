@@ -32,13 +32,9 @@ endef
 $(call pkgconf,QT5CORE,Qt5Core)
 $(call pkgconf,QT5WIDGETS,Qt5Widgets)
 
-CFLAGS   ?= -Wall -Wextra -Werror
-CXXFLAGS ?= -Wall -Wextra -Werror
-LDFLAGS  ?= -Wl,--no-undefined
-
-override CFLAGS   += -std=gnu11
-override CXXFLAGS += -std=gnu++11
-override LDFLAGS  += -Wl,-rpath,/usr/local/Kobo -Wl,-rpath,/usr/local/Qt-5.2.1-arm/lib
+override CFLAGS   += -std=gnu11 -Wall -Wextra -Werror
+override CXXFLAGS += -std=gnu++11 -Wall -Wextra -Werror
+override LDFLAGS  += -Wl,--no-undefined -Wl,-rpath,/usr/local/Kobo -Wl,-rpath,/usr/local/Qt-5.2.1-arm/lib
 endif
 
 define GITIGNORE_HEAD
