@@ -36,14 +36,8 @@ CFLAGS   ?= -Wall -Wextra -Werror
 CXXFLAGS ?= -Wall -Wextra -Werror
 LDFLAGS  ?= -Wl,--no-undefined
 
-# temporary workaround for broken cflags in kobo-toolchain Docker image:
-QT5CORE_CFLAGS    := $(shell echo "$(QT5CORE_CFLAGS)"    | sed 's:/toolchain/arm-nickel-linux-gnueabihf/arm-nickel-linux-gnueabihf/sysroot/toolchain/arm-nickel-linux-gnueabihf/arm-nickel-linux-gnueabihf/sysroot/:/toolchain/arm-nickel-linux-gnueabihf/arm-nickel-linux-gnueabihf/sysroot/:g')
-QT5WIDGETS_CFLAGS := $(shell echo "$(QT5WIDGETS_CFLAGS)" | sed 's:/toolchain/arm-nickel-linux-gnueabihf/arm-nickel-linux-gnueabihf/sysroot/toolchain/arm-nickel-linux-gnueabihf/arm-nickel-linux-gnueabihf/sysroot/:/toolchain/arm-nickel-linux-gnueabihf/arm-nickel-linux-gnueabihf/sysroot/:g')
-override CFLAGS   += -I/toolchain/arm-nickel-linux-gnueabihf/arm-nickel-linux-gnueabihf/sysroot/include
-override CXXFLAGS += -I/toolchain/arm-nickel-linux-gnueabihf/arm-nickel-linux-gnueabihf/sysroot/include
-
-override CFLAGS   += -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=hard -mthumb -std=gnu11
-override CXXFLAGS += -march=armv7-a -mtune=cortex-a8 -mfpu=neon -mfloat-abi=hard -mthumb -std=gnu++11
+override CFLAGS   += -std=gnu11
+override CXXFLAGS += -std=gnu++11
 override LDFLAGS  += -Wl,-rpath,/usr/local/Kobo -Wl,-rpath,/usr/local/Qt-5.2.1-arm/lib
 endif
 
